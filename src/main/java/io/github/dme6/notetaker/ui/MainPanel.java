@@ -15,15 +15,15 @@ import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
 import io.github.dme6.notetaker.data.NoteData;
-import io.github.dme6.notetaker.ui.functionality.CreateNoteListener;
-import io.github.dme6.notetaker.ui.functionality.ReadNotesFunction;
+import io.github.dme6.notetaker.task.ReadNotesTask;
+import io.github.dme6.notetaker.ui.functionality.listener.CreateNoteListener;
 import io.github.dme6.notetaker.ui.functionality.other.SimpleDelay;
-import io.github.dme6.notetaker.ui.subcomponent.NTLabel;
-import io.github.dme6.notetaker.ui.subcomponent.NoteInfoPanel;
-import io.github.dme6.notetaker.ui.subcomponent.NotePane;
-import io.github.dme6.notetaker.ui.subcomponent.NoteScroll;
-import io.github.dme6.notetaker.ui.subcomponent.NoteScrollPanel;
-import io.github.dme6.notetaker.ui.subcomponent.Sidebar;
+import io.github.dme6.notetaker.ui.subcomponent.notepane.NotePane;
+import io.github.dme6.notetaker.ui.subcomponent.notescroll.NoteScroll;
+import io.github.dme6.notetaker.ui.subcomponent.notescroll.NoteScrollPanel;
+import io.github.dme6.notetaker.ui.subcomponent.other.NoteTakerLabel;
+import io.github.dme6.notetaker.ui.subcomponent.other.NoteInfoPanel;
+import io.github.dme6.notetaker.ui.subcomponent.other.Sidebar;
 import net.miginfocom.swing.MigLayout;
 
 public class MainPanel extends JPanel {
@@ -44,14 +44,16 @@ public class MainPanel extends JPanel {
 		this.setBackground(new Color(200, 200, 200));
 		init();
 		
-		new ReadNotesFunction(cb -> {
-			refreshNotes((List<NoteData>) cb.getData());
-		}).perform();
+		new Thread(new ReadNotesTask(cb -> {
+			if(cb.getStatus() == 0) {
+				refreshNotes((List<NoteData>) cb.getData());
+			}
+		})).start();
 	}
 	
 	private void init() {
 		
-		NTLabel ntLbl = new NTLabel();
+		NoteTakerLabel ntLbl = new NoteTakerLabel();
 		this.add(ntLbl);
 		
 		statusLbl = new JLabel("");
@@ -66,7 +68,6 @@ public class MainPanel extends JPanel {
 		this.add(nScrl, "span, growx, wrap");
 		
 		sidebar = new Sidebar(this);
-		
 		this.add(sidebar, "grow");
 		
 		nPane = new NotePane();

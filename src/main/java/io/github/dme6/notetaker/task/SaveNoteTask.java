@@ -33,7 +33,7 @@ public class SaveNoteTask implements Runnable {
 			
 			if(nd.getNoteId() == 0) {
 				noteId = randGen.nextInt(1000000000);
-		        nd.setNoteId(noteId);
+				nd.setNoteId(noteId);
 			} else {
 				noteId = nd.getNoteId();
 			}

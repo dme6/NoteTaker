@@ -1,4 +1,4 @@
-package io.github.dme6.notetaker.ui.subcomponent;
+package io.github.dme6.notetaker.ui.subcomponent.other;
 
 import java.awt.Color;
 
@@ -8,9 +8,9 @@ import javax.swing.border.LineBorder;
 
 import io.github.dme6.notetaker.data.NoteData;
 import io.github.dme6.notetaker.ui.MainPanel;
-import io.github.dme6.notetaker.ui.functionality.DeleteNoteListener;
-import io.github.dme6.notetaker.ui.functionality.RenameNoteListener;
-import io.github.dme6.notetaker.ui.functionality.SaveNoteListener;
+import io.github.dme6.notetaker.ui.functionality.listener.DeleteNoteListener;
+import io.github.dme6.notetaker.ui.functionality.listener.RenameNoteListener;
+import io.github.dme6.notetaker.ui.functionality.listener.SaveNoteListener;
 import net.miginfocom.swing.MigLayout;
 
 public class Sidebar extends JPanel {

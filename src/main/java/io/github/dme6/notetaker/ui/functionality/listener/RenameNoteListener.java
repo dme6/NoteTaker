@@ -1,4 +1,4 @@
-package io.github.dme6.notetaker.ui.functionality;
+package io.github.dme6.notetaker.ui.functionality.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +7,7 @@ import java.util.List;
 import io.github.dme6.notetaker.data.NoteData;
 import io.github.dme6.notetaker.prompt.RenamePrompt;
 import io.github.dme6.notetaker.task.Callback;
+import io.github.dme6.notetaker.task.ReadNotesTask;
 import io.github.dme6.notetaker.task.SaveNoteTask;
 import io.github.dme6.notetaker.ui.MainPanel;
 
@@ -37,7 +38,7 @@ public class RenameNoteListener implements ActionListener {
 			
 			SaveNoteTask snTask = new SaveNoteTask(newN, cb2 -> {
 				if(cb2.getStatus() == 0) {
-					new ReadNotesFunction(snCb).perform();
+					new Thread(new ReadNotesTask(snCb)).start();
 				}
 			});
 			

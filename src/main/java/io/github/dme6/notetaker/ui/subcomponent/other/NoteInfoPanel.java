@@ -1,4 +1,4 @@
-package io.github.dme6.notetaker.ui.subcomponent;
+package io.github.dme6.notetaker.ui.subcomponent.other;
 
 import java.awt.Color;
 
@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 import io.github.dme6.notetaker.data.NoteData;
 import io.github.dme6.notetaker.ui.MainPanel;
-import io.github.dme6.notetaker.ui.functionality.OpenNoteListener;
+import io.github.dme6.notetaker.ui.functionality.listener.OpenNoteListener;
 import net.miginfocom.swing.MigLayout;
 
 public class NoteInfoPanel extends JPanel {

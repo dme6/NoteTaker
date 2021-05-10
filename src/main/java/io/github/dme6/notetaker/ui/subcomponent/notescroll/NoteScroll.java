@@ -1,4 +1,4 @@
-package io.github.dme6.notetaker.ui.subcomponent;
+package io.github.dme6.notetaker.ui.subcomponent.notescroll;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -14,12 +14,10 @@ public class NoteScroll extends JScrollPane {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public NoteScroll(Component viewV) {
-		
-		this.setPreferredSize(new Dimension(0, 100));
+	public NoteScroll(Component view) {		
 		this.setBorder(new LineBorder(Color.GRAY, 1));
-		this.setViewportView(viewV);
-		
+		this.setMinimumSize(new Dimension(0, 100));	
+		this.setViewportView(view);	
 	}
 
 }

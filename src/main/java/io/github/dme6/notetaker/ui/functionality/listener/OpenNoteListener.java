@@ -1,4 +1,4 @@
-package io.github.dme6.notetaker.ui.functionality;
+package io.github.dme6.notetaker.ui.functionality.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

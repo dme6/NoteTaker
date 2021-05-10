@@ -1,4 +1,4 @@
-package io.github.dme6.notetaker.ui.subcomponent;
+package io.github.dme6.notetaker.ui.subcomponent.other;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -6,14 +6,14 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
-public class NTLabel extends JLabel {
+public class NoteTakerLabel extends JLabel {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public NTLabel() {
+	public NoteTakerLabel() {
 		
 		super("NoteTaker", JLabel.CENTER);
 		

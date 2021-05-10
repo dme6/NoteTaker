@@ -1,4 +1,4 @@
-package io.github.dme6.notetaker.ui.subcomponent;
+package io.github.dme6.notetaker.ui.subcomponent.notescroll;
 
 import javax.swing.JPanel;
 
@@ -12,9 +12,7 @@ public class NoteScrollPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	public NoteScrollPanel() {
-		
 		this.setLayout(new MigLayout());
-		
 	}
 
 }
