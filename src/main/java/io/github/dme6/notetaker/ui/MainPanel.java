@@ -16,8 +16,8 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import io.github.dme6.notetaker.data.NoteData;
 import io.github.dme6.notetaker.task.ReadNotesTask;
+import io.github.dme6.notetaker.task.DelayTask;
 import io.github.dme6.notetaker.ui.functionality.listener.CreateNoteListener;
-import io.github.dme6.notetaker.ui.functionality.other.SimpleDelay;
 import io.github.dme6.notetaker.ui.subcomponent.notepane.NotePane;
 import io.github.dme6.notetaker.ui.subcomponent.notescroll.NoteScroll;
 import io.github.dme6.notetaker.ui.subcomponent.notescroll.NoteScrollPanel;
@@ -83,7 +83,7 @@ public class MainPanel extends JPanel {
 	
 	public void updateStatus(String status) {
 		statusLbl.setText(status);
-		exe1.execute(new SimpleDelay(4000, cb2 -> {
+		exe1.execute(new DelayTask(4000, cb2 -> {
 			statusLbl.setText("");
 		}));
 	}

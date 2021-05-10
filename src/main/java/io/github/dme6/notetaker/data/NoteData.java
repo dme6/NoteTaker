@@ -10,7 +10,6 @@ public class NoteData implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String title;
-	// The body may be protected via password.
 	private String body;
 	private int noteId;
 	

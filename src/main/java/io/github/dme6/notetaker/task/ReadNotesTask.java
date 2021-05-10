@@ -10,25 +10,23 @@ import java.util.List;
 import io.github.dme6.notetaker.data.CallbackData;
 import io.github.dme6.notetaker.data.NoteData;
 
-public class ReadNotesTask implements Runnable {
-
-	private Callback cb;
+public class ReadNotesTask extends Task {
 	
 	public ReadNotesTask(Callback cb) {
-		this.cb = cb;
+		super(cb);
 	}
 
 	@Override
 	public void run() {
 		
+		File dataFolder = new File("./data_notetaker");
+		if(!dataFolder.exists()) {
+			dataFolder.mkdirs();
+		}
+		
+		List<NoteData> noteList = new ArrayList<>();
+		
 		try {
-			
-			File dataFolder = new File("./data_notetaker");
-			if(!dataFolder.exists()) {
-				dataFolder.mkdirs();
-			}
-			
-			List<NoteData> noteList = new ArrayList<>();
 			
 			for(File f : dataFolder.listFiles()) {
 				ObjectInputStream os = new ObjectInputStream
@@ -40,14 +38,12 @@ public class ReadNotesTask implements Runnable {
 				os.close();
 			}
 			
-			cb.callback(new CallbackData(0, noteList)); 
+			this.callBackEDT(new CallbackData(0, noteList)); 
 			
 		} catch(InvalidClassException e) {
-			e.printStackTrace();
-			cb.callback(new CallbackData(2, ""));
+			this.callBackEDT(new CallbackData(2, ""));
 		} catch(Exception e) {
-			e.printStackTrace();
-			cb.callback(new CallbackData(1, ""));
+			this.callBackEDT(new CallbackData(1, ""));
 		}
 		
 	}
