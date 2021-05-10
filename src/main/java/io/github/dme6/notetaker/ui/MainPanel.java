@@ -94,6 +94,7 @@ public class MainPanel extends JPanel {
 		Node doc = parser.parse(nd.getBody());
 		HtmlRenderer renderer = HtmlRenderer.builder().build();
 
+		nPane.getEditor().setEditable(true);
 		nPane.getEditor().setText(nd.getBody());
 		nPane.getViewer().setText(renderer.render(doc));
 		sidebar.init(nd);
@@ -111,8 +112,9 @@ public class MainPanel extends JPanel {
 	public void refreshNotes(List<NoteData> lnd) {
 		
 		sidebar.unInit();
+		nPane.getEditor().setEditable(false);
 		nPane.getEditor().setText("");
-		nPane.getViewer().setText("");
+		nPane.getViewer().setText("<p></p>");
 		
 		scrlP.removeAll();
 		
