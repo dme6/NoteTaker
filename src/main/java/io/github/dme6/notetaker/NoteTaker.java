@@ -9,17 +9,12 @@ public class NoteTaker {
 
 	public static void main(String[] args) {
 		
-		SwingUtilities.invokeLater(new Runnable() {
+		SwingUtilities.invokeLater(() -> {
 			
-			@Override
-			public void run() {
-				
-				new LookAndFeelLoader().loadFastLAF();
-				
-				MainFrame mainFrame = new MainFrame();
-				mainFrame.setVisible(true);
-				
-			}	
+			new LookAndFeelLoader().loadSystemLAF();
+			
+			MainFrame mainFrame = new MainFrame();
+			mainFrame.setVisible(true);
 			
 		});
 			

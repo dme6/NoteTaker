@@ -30,7 +30,7 @@ public class SaveNoteListener implements ActionListener {
 		SaveNoteTask snTask = new SaveNoteTask(newN, cb -> {
 			if(cb.getStatus() == 0) {
 				
-				mp.updateStatus("Note saved successfully.");
+				mp.setTempStatus("Note saved successfully.");
 				
 				new Thread(new ReadNotesTask(cb2 -> {
 					mp.refreshNotes((List<NoteData>) cb2.getData());

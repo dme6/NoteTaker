@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.dme6.notetaker</groupId>
 	<artifactId>notetaker</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<name>NoteTaker</name>
 	<description>Advanced note taking.</description>
 	<properties>
@@ -56,11 +56,6 @@
 			<groupId>org.commonmark</groupId>
 			<artifactId>commonmark</artifactId>
 			<version>0.17.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.jtattoo</groupId>
-			<artifactId>JTattoo</artifactId>
-			<version>1.6.13</version>
 		</dependency>
 	</dependencies>
 </project>

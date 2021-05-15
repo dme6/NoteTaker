@@ -15,7 +15,7 @@ public class TabScroll extends JScrollPane {
 
 	public TabScroll(Component view) {
 		this.setBorder(new LineBorder(Color.GRAY, 1));
-		this.setViewportView(view);	
+		this.setViewportView(view);
 	}
 
 }

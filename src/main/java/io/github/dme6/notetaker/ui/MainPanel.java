@@ -81,7 +81,7 @@ public class MainPanel extends JPanel {
 	
 	private Executor exe1 = Executors.newSingleThreadExecutor();
 	
-	public void updateStatus(String status) {
+	public void setTempStatus(String status) {
 		statusLbl.setText(status);
 		exe1.execute(new DelayTask(4000, cb2 -> {
 			statusLbl.setText("");
@@ -89,7 +89,7 @@ public class MainPanel extends JPanel {
 	}
 	
 	public void openNote(NoteData nd) {
-		
+
 		Parser parser = Parser.builder().build();
 		Node doc = parser.parse(nd.getBody());
 		HtmlRenderer renderer = HtmlRenderer.builder().build();
@@ -98,7 +98,7 @@ public class MainPanel extends JPanel {
 		nPane.getEditor().setText(nd.getBody());
 		nPane.getViewer().setText(renderer.render(doc));
 		sidebar.init(nd);
-		
+
 		for(Component comp : scrlP.getComponents()) {
 			comp.setBackground(new Color(86, 133, 117));
 			NoteInfoPanel np = (NoteInfoPanel) comp;
