@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.dme6.notetaker</groupId>
 	<artifactId>notetaker</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>NoteTaker</name>
 	<description>Advanced note taking.</description>
 	<properties>
